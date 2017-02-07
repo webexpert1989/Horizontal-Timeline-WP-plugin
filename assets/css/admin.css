@@ -1,0 +1,193 @@
+/**************************************************************
+ *
+ * admin stylesheet
+ *
+ **************************************************************/
+
+
+/***********************************
+ * Fix Wordpress admin stylesheet
+ */
+
+.wp-core-ui .button-secondary {
+	background: #b73b27;
+	border-color: #7f291b;
+	color: #fff;
+	text-shadow: none;
+	-webkit-box-shadow: inset 0 1px 0 rgba(229,134,119,0.5), 0 1px 0 rgba(0,0,0,.15);
+	-moz-box-shadow: inset 0 1px 0 rgba(229,134,119,0.5), 0 1px 0 rgba(0,0,0,.15);
+	box-shadow: inset 0 1px 0 rgba(229,134,119,0.5), 0 1px 0 rgba(0,0,0,.15);
+}
+.wp-core-ui .button-secondary.hover,
+.wp-core-ui .button-secondary:hover,
+.wp-core-ui .button-secondary.focus, 
+.wp-core-ui .button-secondary:focus {
+	background: #9b3221;
+	border-color: #7f291b;
+	color: #fff;
+	-webkit-box-shadow: inset 0 1px 0 rgba(229,134,119,0.6);
+	-moz-box-shadow: inset 0 1px 0 rgba(229,134,119,0.5), 0 1px 0 rgba(0,0,0,.15);
+	box-shadow: inset 0 1px 0 rgba(229,134,119,0.6);
+}
+
+.wp-core-ui .button-secondary.active, 
+.wp-core-ui .button-secondary.active:hover, 
+.wp-core-ui .button-secondary.active:focus, 
+.wp-core-ui .button-secondary:active {
+    background: #b73b27;
+    border-color: #7f291b;
+    color: rgba(255,255,255,0.95);
+    -webkit-box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
+    -moz-box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
+    vertical-align: top;
+}
+
+
+/* loading bar */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000 url(../img/ajax-loader.gif) center center no-repeat;
+    opacity: 0.6;
+    display: none;
+    z-index: 9999;
+}
+
+/***********************************
+ * Content wrapper
+ */
+
+
+#timeline-admin .add-new-h2 {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#timeline-admin section input[type=text] {
+    padding: 4px;
+    max-width: 300px;
+    width: 100%;
+}
+
+#timeline-admin label {
+	padding: 5px 5px 5px 0;
+	line-height: 20px;
+	min-width: 140px;
+	display: inline-block;
+	vertical-align: top;
+    font-weight: 700;
+}
+
+#timeline-admin .upload {
+    max-width: 300px;
+    width: 100%;
+    display: inline-block;
+}
+
+#timeline-admin .upload input[type=text] {
+	max-width: 229px;
+    width: calc(100% - 71px);
+}
+
+#timeline-admin .timeline-preview {
+    margin-top: 5px;
+    width: 100%;
+    max-width: 640px;
+}
+
+#timeline-admin .timeline-preview img {
+    padding: 3px;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+#timeline-admin section {
+	margin: 5px 0;
+}
+
+#timeline-admin section#color-group label {
+    display: block;
+}
+
+#timeline-admin .fieldset {
+    margin: 10px 0;
+    padding: 5px 10px 10px 10px;
+    border: 1px solid #ddd;
+}
+
+#timeline-admin .fieldset label {
+    min-width: 130px;
+}
+
+#timeline-admin .group-items {
+    max-width: 100%;
+    overflow-x: auto; 
+}
+
+#timeline-admin .fieldset table {
+    margin: 20px 0 0 0;
+    width: 100%;
+    min-width: 640px;
+    border: 1px solid #aaa;
+}
+
+#timeline-admin .fieldset table th,
+#timeline-admin .fieldset table td {
+    padding: 10px 5px;
+}
+
+#timeline-admin .fieldset table thead th {
+    text-align: left;
+    color: #fff;
+    background-color: #aaa;
+}
+
+#timeline-admin .fieldset table tfoot th {
+    padding: 5px;
+    text-align: left;
+    border-top: 1px solid #aaa;
+}
+
+#timeline-admin .fieldset table tbody tr:nth-child(even) td {
+    background-color: #fafafa;
+}
+
+#timeline-admin .fieldset table tr th:last-child,
+#timeline-admin .fieldset table tr td:last-child {
+    text-align: center;
+}
+
+#timeline-admin .fieldset table tbody tr td:last-child a *,
+#timeline-admin .fieldset table tfoot tr th:last-child a * {
+    color: #333;
+    font-size: 18px;
+}
+
+#timeline-admin .fieldset table tbody tr td a {
+    margin-right: 5px;
+}
+#timeline-admin .fieldset table tbody tr td a:last-child {
+    margin-right: 0;
+}
+
+#timeline-admin .remove-group {
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#timeline-admin .action-wrap {
+    margin-top: 30px;
+    text-align: right;
+}
+
+#timeline-admin .action-wrap input[type=button] {
+    margin-right: 10px;
+}
+#timeline-admin .action-wrap input[type=button]:last-child {
+    margin: 0;
+}
