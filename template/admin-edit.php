@@ -45,7 +45,7 @@ function T_edit($data = null){
                 
                 <section>
                     <label for="timeline-date"><?php echo __('Date', 'timeline'); ?>:</label> 
-                    <input type="text" id="timeline-date" name="timeline-date" value="<?php echo $data->post_date? $d->format('d/m/Y'): ''; ?>" placeholder="dd/mm/yyyy"/>
+                    <input type="text" id="timeline-date" name="timeline-date" value="<?php echo $data->post_date? $d->format('m/d/Y'): ''; ?>" placeholder="mm/dd/yyyy"/>
                 </section>
                 <section>
                     <label for="timeline-dotname"><?php echo __('Name', 'timeline'); ?>:</label> 

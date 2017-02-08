@@ -1,8 +1,6 @@
 jQuery(document).ready(function($){
-    var w = jQuery(".cd-horizontal-timeline .horizontal-timeline").width() / jQuery(".cd-horizontal-timeline .horizontal-timeline ol").find("li").length + 10;
 	var timelines = $('.cd-horizontal-timeline'),
-		eventsMinDistance = w > 80? w: 80;
-    console.log(eventsMinDistance);
+		eventsMinDistance = 90;
     
 	(timelines.length > 0) && initTimeline(timelines);
 
@@ -21,9 +19,9 @@ jQuery(document).ready(function($){
 			timelineComponents['eventsContent'] = timeline.children('.events-content');
 
 			//assign a left postion to the single events along the timeline
-			setDatePosition(timelineComponents, eventsMinDistance);
+			var timelineTotalNum = setDatePosition(timelineComponents, eventsMinDistance);
 			//assign a width to the timeline
-			var timelineTotWidth = setTimelineWidth(timelineComponents, eventsMinDistance);
+			var timelineTotWidth = setTimelineWidth(timelineComponents, eventsMinDistance, timelineTotalNum);
 			//the timeline has been initialize - show it
 			timeline.addClass('loaded');
 
@@ -130,18 +128,39 @@ jQuery(document).ready(function($){
 	}
 
 	function setDatePosition(timelineComponents, min) {
-		for (i = 0; i < timelineComponents['timelineDates'].length; i++) { 
-		    var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
-		    	distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;
-		    timelineComponents['timelineEvents'].eq(i).css('left', distanceNorm*min+'px');
+        var distances = [];
+        for (i = 0; i < timelineComponents['timelineDates'].length; i++) { 
+		    distances.push(Math.round(daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i])/timelineComponents['eventsMinLapse']) + 2);            
 		}
+        
+        // get interval
+        var intervals = [];
+        var maxInterval = 0;
+		for (i = 0; i < distances.length - 1; i++) { 
+            var interval = distances[i + 1] - distances[i] - 1;
+            intervals.push(interval);
+            maxInterval = maxInterval > interval? maxInterval: interval;
+		}
+        
+        if(maxInterval > 3){// max width is 3 * distance
+            var revision = maxInterval / 3;
+            for (i = 0; i < intervals.length; i++){ 
+                intervals[i] = intervals[i] / revision;
+                distances[i + 1] = distances[i] + intervals[i] + 1;
+            }
+        }
+        
+        console.log(maxInterval, distances);
+        
+		for (i = 0; i < distances.length; i++){ 
+		    timelineComponents['timelineEvents'].eq(i).css('left', distances[i]*min+'px');
+		}
+        
+        return distances[distances.length - 1] + 2;
 	}
 
-	function setTimelineWidth(timelineComponents, width) {
-		var timeSpan = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][timelineComponents['timelineDates'].length-1]),
-			timeSpanNorm = timeSpan/timelineComponents['eventsMinLapse'],
-			timeSpanNorm = Math.round(timeSpanNorm) + 4,
-			totalWidth = timeSpanNorm*width;
+	function setTimelineWidth(timelineComponents, width, timeSpanNorm) {
+		var totalWidth = timeSpanNorm*width;
 		timelineComponents['eventsWrapper'].css('width', totalWidth+'px');
 		updateFilling(timelineComponents['eventsWrapper'].find('a.selected'), timelineComponents['fillingLine'], totalWidth);
 		updateTimelinePosition('next', timelineComponents['eventsWrapper'].find('a.selected'), timelineComponents);

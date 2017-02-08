@@ -113,7 +113,7 @@ Main Components
     top: 0;
     height: 100%;
     width: 100%;
-    /*background-color: #de5034;*/
+    background-color: #de5034;
     -webkit-transform: scaleX(0);
     -moz-transform: scaleX(0);
     -ms-transform: scaleX(0);
@@ -178,6 +178,7 @@ Main Components
     border-color: #de5034;
 }
 .cd-horizontal-timeline .events a.older-event::after {
+    border: 2px solid #de5034; */
     /*border-color: #de5034;
     background-color: #de5034;*/
 }
@@ -190,7 +191,7 @@ Main Components
     position: absolute;
     bottom: 23px;
     padding-bottom: 14px;
-    min-width: 80px;
+    min-width: 90px;
     left: 50%;
     transform: translateX(-50%);
 }
