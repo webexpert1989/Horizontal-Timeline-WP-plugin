@@ -15,7 +15,7 @@ function T_view($timelines = array(), $opt = 'default'){
 	///////////
 
 	?>
-        <section class="cd-horizontal-timeline <?php echo $opt == 'default'? '': 'theme-light'; ?>">
+        <section class="cd-horizontal-timeline <?php echo $opt != 'default'? '': 'theme-light'; ?>">
             <div class="horizontal-timeline">
                 <div class="events-wrapper">
                     <div class="events">

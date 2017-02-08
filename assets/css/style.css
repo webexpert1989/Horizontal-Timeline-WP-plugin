@@ -166,6 +166,10 @@ Main Components
     -moz-transition: background-color 0.3s, border-color 0.3s;
     transition: background-color 0.3s, border-color 0.3s;
 }
+.cd-horizontal-timeline.theme-light .events a::after {
+    border: 2px solid #dddddd;
+}
+
 .no-touch .cd-horizontal-timeline .events a:hover::after {
     background-color: #fff;
     border: 2px solid #de5034;
@@ -182,6 +186,7 @@ Main Components
     /*border-color: #de5034;
     background-color: #de5034;*/
 }
+
 
 .cd-horizontal-timeline .events a span {
     min-width: 36px;
